@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sujal Tawale — Resume</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --panel:#161616;
+    --panel-2:#1c1c1c;
+    --red:#E50914;
+    --red-deep:#B0060F;
+    --text:#f2f2ef;
+    --muted:#9c9c98;
+    --faint:#6f6f6c;
+    --line:#2b2b2b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 500px at 12% -10%, rgba(229,9,20,.14), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', Arial, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .page{
+    max-width:1180px;
+    margin:0 auto;
+    padding:56px 44px 100px;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:52px;
+  }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar{
+    position:sticky;
+    top:40px;
+    align-self:start;
+  }
+  .mark{
+    width:54px;height:54px;
+    background:var(--red);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Bebas Neue', sans-serif;
+    font-size:30px;
+    letter-spacing:.02em;
+    border-radius:6px;
+    margin-bottom:22px;
+  }
+  .side-name{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:34px;
+    letter-spacing:.03em;
+    line-height:1.05;
+    margin:0 0 4px;
+  }
+  .side-role{
+    color:var(--muted);
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:26px;
+  }
+
+  .side-block{margin-bottom:30px;}
+  .side-block h4{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--red);
+    font-weight:700;
+    margin:0 0 12px;
+  }
+
+  .contact-list{list-style:none;margin:0;padding:0;}
+  .contact-list li{
+    display:flex;align-items:center;gap:10px;
+    font-size:13px;color:#d6d6d2;
+    margin-bottom:10px;
+    word-break:break-word;
+  }
+  .contact-list svg{flex:none;width:15px;height:15px;stroke:var(--red);}
+  .contact-list a{text-decoration:none;}
+  .contact-list a:hover{color:var(--red);}
+
+  .tag-cloud{display:flex;flex-wrap:wrap;gap:7px;}
+  .tag{
+    font-size:11.5px;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:#d0d0cc;
+    background:var(--panel);
+    white-space:nowrap;
+  }
+
+  .mini-edu{margin-bottom:14px;}
+  .mini-edu:last-child{margin-bottom:0;}
+  .mini-edu .deg{font-size:13px;font-weight:700;color:var(--text);}
+  .mini-edu .sch{font-size:11.5px;color:var(--muted);margin-top:2px;}
+  .mini-edu .meta{font-size:11px;color:var(--red);font-weight:700;margin-top:3px;}
+
+  .award{
+    display:flex;gap:9px;align-items:flex-start;
+    font-size:12.5px;color:#d6d6d2;
+    margin-bottom:11px;
+  }
+  .award svg{flex:none;width:14px;height:14px;stroke:var(--red);margin-top:2px;}
+  .award .org{display:block;color:var(--faint);font-size:11px;margin-top:1px;}
+
+  /* ============ MAIN ============ */
+  main{min-width:0;}
+
+  .hero{
+    padding-bottom:30px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:34px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--red);font-weight:700;font-size:11.5px;
+    letter-spacing:.22em;text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .eyebrow::before{
+    content:"";width:16px;height:2px;background:var(--red);
+  }
+  h1.title{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:58px;
+    letter-spacing:.02em;
+    margin:0 0 8px;
+    line-height:1;
+  }
+  .tagline{
+    color:#cfcfca;
+    font-size:16px;
+    max-width:640px;
+    font-weight:500;
+  }
+
+  /* stat strip */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    margin-top:26px;
+  }
+  .stat{
+    background:var(--panel);
+    padding:16px 14px;
+    text-align:center;
+  }
+  .stat .num{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:26px;
+    color:var(--red);
+    line-height:1;
+  }
+  .stat .lbl{
+    font-size:10.5px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin-top:6px;
+  }
+
+  section{margin-bottom:40px;}
+  .sec-title{
+    display:flex;align-items:baseline;gap:12px;
+    margin-bottom:18px;
+  }
+  .sec-title h2{
+    margin:0;
+    font-size:13px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    font-weight:800;
+  }
+  .sec-title .rule{flex:1;height:1px;background:var(--line);}
+
+  .summary p{
+    color:#d3d3cf;
+    font-size:15px;
+    max-width:780px;
+    margin:0;
+  }
+
+  /* strengths */
+  .strengths{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+  .strength{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:14px 16px;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .strength svg{flex:none;width:18px;height:18px;stroke:var(--red);margin-top:1px;}
+  .strength h5{margin:0 0 3px;font-size:13.5px;font-weight:700;}
+  .strength p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.45;}
+
+  /* projects - episode style */
+  .episode{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:24px 26px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .episode::before{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(var(--red), var(--red-deep));
+  }
+  .ep-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .ep-tag{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    color:var(--red);
+    background:rgba(229,9,20,.12);
+    border:1px solid rgba(229,9,20,.35);
+    padding:3px 10px;
+    border-radius:4px;
+    margin-bottom:8px;
+    display:inline-block;
+  }
+  .ep-head h3{
+    margin:0;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:.005em;
+  }
+  .ep-dates{
+    font-size:11.5px;
+    color:var(--muted);
+    font-weight:600;
+    white-space:nowrap;
+    padding-top:4px;
+  }
+  .ep-stack{
+    display:flex;flex-wrap:wrap;gap:6px;
+    margin:10px 0 14px;
+  }
+  .ep-stack span{
+    font-size:10.5px;
+    color:#c9c9c5;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:3px 9px;
+    border-radius:20px;
+  }
+  .episode ul{
+    margin:0;padding-left:18px;
+    color:#c9c9c4;font-size:14px;
+  }
+  .episode li{margin-bottom:7px;}
+  .episode li::marker{color:var(--red);}
+  .episode li:last-child{margin-bottom:0;}
+
+  @media (max-width:860px){
+    .page{grid-template-columns:1fr;padding:32px 22px 70px;}
+    .sidebar{position:static;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .strengths{grid-template-columns:1fr;}
+    h1.title{font-size:44px;}
+  }
+
+  /* ============ PRINT — clean single column, ATS-safe ============ */
+  @media print{
+    body{background:#fff;color:#111;}
+    .page{display:block;max-width:100%;padding:26px 34px;}
+    .sidebar{position:static;margin-bottom:28px;}
+    .mark{background:#B00610;}
+    .side-name,h1.title{color:#111;}
+    .side-role,.tagline{color:#333;}
+    h4,.eyebrow,.sec-title h2{color:#B00610;}
+    .contact-list svg,.award svg,.strength svg{stroke:#B00610;}
+    .tag,.ep-stack span{background:#f4f4f4;border-color:#ddd;color:#222;}
+    .mini-edu .meta{color:#B00610;}
+    .stats{background:#ddd;border-color:#ddd;}
+    .stat{background:#fff;}
+    .stat .num{color:#B00610;}
+    .summary p{color:#222;}
+    .strength{background:#fff;border-color:#ddd;}
+    .strength p{color:#444;}
+    .episode{background:#fff;border-color:#ddd;break-inside:avoid;}
+    .episode::before{background:#B00610;}
+    .ep-tag{background:#fdecec;border-color:#f2b9bd;color:#B00610;}
+    .episode ul{color:#222;}
+    .sec-title .rule{background:#ddd;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="mark">ST</div>
+    <div class="side-name">SUJAL<br>TAWALE</div>
+    <div class="side-role">AI &amp; Data Science Engineer</div>
+
+    <div class="side-block">
+      <h4>Contact</h4>
+      <ul class="contact-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +91 8237521517</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg> <a href="mailto:sujaltawale15@gmail.com">sujaltawale15@gmail.com</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> <a href="https://linkedin.com/in/sujaltawale36">linkedin.com/in/sujaltawale36</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> <a href="https://github.com/sujal99">github.com/sujal99</a></li>
+      </ul>
+    </div>
+
+    <div class="side-block">
+      <h4>Skills</h4>
+      <div class="tag-cloud">
+        <span class="tag">Python</span>
+        <span class="tag">Java</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">Pandas / NumPy</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Git</span>
+        <span class="tag">DBMS</span>
+        <span class="tag">DSA</span>
+        <span class="tag">OOP</span>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h4>Education</h4>
+      <div class="mini-edu">
+        <div class="deg">B.Tech, AI &amp; Data Science</div>
+        <div class="sch">Vishwakarma Institute of Technology, Pune</div>
+        <div class="meta">GPA 8.73/10 · 2023–2027</div>
+      </div>
+      <div class="mini-edu">
+        <div class="deg">12th Standard (HSC) – Science</div>
+        <div class="sch">Dayanand Science College, Latur</div>
+        <div class="meta">71.00% · 2021–2023</div>
+      </div>
+      <div class="mini-edu">
+        <div class="deg">10th Standard (SSC)</div>
+        <div class="sch">Janata Vidya Mandir, Murud</div>
+        <div class="meta">96.00%</div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <h4>Certifications</h4>
+      <div class="award">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+        <div>Building with the Claude API<span class="org">Anthropic</span></div>
+      </div>
+      <div class="award">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+        <div>Advanced Topics: Model Context Protocol<span class="org">Anthropic</span></div>
+      </div>
+      <div class="award">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+        <div>Introduction to Model Context Protocol<span class="org">Anthropic</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <div class="hero">
+      <div class="eyebrow">Portfolio Resume</div>
+      <h1 class="title">Sujal Tawale</h1>
+      <div class="tagline">Building applied ML systems end-to-end — from data pipelines and model training to production-ready web apps for resume intelligence, demand forecasting, and media forensics.</div>
+
+      <div class="stats">
+        <div class="stat"><div class="num">8.73</div><div class="lbl">GPA / 10</div></div>
+        <div class="stat"><div class="num">3</div><div class="lbl">Major ML Projects</div></div>
+        <div class="stat"><div class="num">94%</div><div class="lbl">Peak Model Accuracy</div></div>
+        <div class="stat"><div class="num">15K+</div><div class="lbl">Images Analyzed</div></div>
+      </div>
+    </div>
+
+    <section class="summary">
+      <div class="sec-title"><h2>Summary</h2><div class="rule"></div></div>
+      <p>AI and Data Science undergraduate with hands-on experience building end-to-end machine learning and deep learning systems, including NLP-based resume screening, sales forecasting, and deepfake detection. Skilled in Python, SQL, and the full ML lifecycle — from data engineering and model development to deployment via Streamlit and Flask. Strong foundation in Data Structures, DBMS, and OOP, with practical exposure to LLM tooling through Anthropic's Model Context Protocol and Claude API certifications.</p>
+    </section>
+
+    <section>
+      <div class="sec-title"><h2>Core Strengths</h2><div class="rule"></div></div>
+      <div class="strengths">
+        <div class="strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <div><h5>End-to-End ML Delivery</h5><p>Takes projects from raw data and EDA through model training to a deployed, user-facing application.</p></div>
+        </div>
+        <div class="strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"/></svg>
+          <div><h5>Explainable AI</h5><p>Uses Grad-CAM and confidence scoring to make model predictions transparent and interpretable.</p></div>
+        </div>
+        <div class="strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div><h5>Full-Stack Integration</h5><p>Pairs ML models with production-style front ends (Streamlit, Next.js) and secure auth (Firebase, OAuth).</p></div>
+        </div>
+        <div class="strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.1-2.8-2.8L7 14"/></svg>
+          <div><h5>Business-Focused Analytics</h5><p>Translates forecasting and yield models into dashboards and reporting that support real decisions.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title"><h2>Projects</h2><div class="rule"></div></div>
+
+      <div class="episode">
+        <div class="ep-head">
+          <div>
+            <div class="ep-tag">PROJECT 01 · NLP + LLM</div>
+            <h3>Advanced AI-Based Resume Tracking &amp; Mock Interview System</h3>
+          </div>
+          <div class="ep-dates">Jan 2026 – Apr 2026</div>
+        </div>
+        <div class="ep-stack">
+          <span>TF-IDF</span><span>Logistic Regression</span><span>SentenceTransformers</span><span>Streamlit</span>
+        </div>
+        <ul>
+          <li>Developed an AI-powered resume analysis platform integrating Machine Learning, NLP, and LLM-based interview assistance.</li>
+          <li>Implemented job-role classification using TF-IDF and Logistic Regression, achieving confidence-based multiclass prediction.</li>
+          <li>Built an ATS-style Resume-to-JD matching engine using cosine similarity with automated skill-gap and mismatch detection.</li>
+          <li>Integrated LLM-based mock interview question generation and semantic answer evaluation using SentenceTransformer embeddings.</li>
+          <li>Designed a modular Streamlit application with model persistence, retraining support, and a roadmap for future BERT integration.</li>
+        </ul>
+      </div>
+
+      <div class="episode">
+        <div class="ep-head">
+          <div>
+            <div class="ep-tag">PROJECT 02 · FORECASTING</div>
+            <h3>AI-Driven Sales Forecasting &amp; Yield Optimization System</h3>
+          </div>
+          <div class="ep-dates">Jul 2025 – Dec 2025</div>
+        </div>
+        <div class="ep-stack">
+          <span>Facebook Prophet</span><span>Random Forest</span><span>Power BI</span><span>Pandas / NumPy</span>
+        </div>
+        <ul>
+          <li>Built an ML analytics system for edible oil sales forecasting and yield optimization using Python, Pandas, NumPy, and SQL.</li>
+          <li>Performed exploratory data analysis to identify sales trends, purchasing patterns, packaging preferences, and seasonal demand spikes.</li>
+          <li>Developed a Facebook Prophet forecasting model on 3 years of sales data, achieving ~9% MAPE for demand prediction.</li>
+          <li>Built a Random Forest Regression model for oil yield prediction, achieving an R² score of 0.81 and RMSE of 2.7.</li>
+          <li>Created business visualizations with Matplotlib and Seaborn to analyze performance and seasonality trends.</li>
+          <li>Planned customer segmentation, Streamlit-based prediction dashboards, and Power BI reporting for business insights.</li>
+        </ul>
+      </div>
+
+      <div class="episode">
+        <div class="ep-head">
+          <div>
+            <div class="ep-tag">PROJECT 03 · COMPUTER VISION</div>
+            <h3>Deepfake Detection System</h3>
+          </div>
+          <div class="ep-dates">Jul 2025 – Dec 2025</div>
+        </div>
+        <div class="ep-stack">
+          <span>InceptionResNetV1</span><span>Grad-CAM</span><span>Flask</span><span>Next.js</span><span>Firebase Auth</span>
+        </div>
+        <ul>
+          <li>Developed a deepfake detection system using InceptionResNetV1 for facial image analysis, achieving 92–94% accuracy on a dataset of 15,000+ real and manipulated images.</li>
+          <li>Implemented explainable AI using Grad-CAM to generate heatmaps highlighting manipulated regions and confidence scores for predictions.</li>
+          <li>Built a full-stack web application with a Flask backend and Next.js frontend, integrating secure login via Firebase Google OAuth.</li>
+          <li>Enabled real-time deepfake detection with visual explanations for end-user interpretability.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
